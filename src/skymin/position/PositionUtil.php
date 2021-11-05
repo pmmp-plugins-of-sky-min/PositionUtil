@@ -32,7 +32,7 @@ final class PositionUtil{
 		if($type === self::TYPE_INT){
 			$result = (int) $x . $hash . (int) $y . $hash . (int) $z
 		}else if($type === self::TYPE_FLOAT){
-			$result =  (float) $x . $hash . (float) $y . $hash . (float) $z;
+			$result =	(float) $x . $hash . (float) $y . $hash . (float) $z;
 		}
 		$result .= $hash . $world;
 		if($pos instanceof Location){
@@ -54,22 +54,22 @@ final class PositionUtil{
 	}
 	
 	public function isZone(Postion $pos1, Postion $pos2, Position $targetPos, int $mode = self::MODE_XYZ) :bool{
-	  $pos1_world = $pos1->world->getFolderName();
-	  if($pos1_world != $pos2->world->getFolderName()) return false;
-	  if($pos1_world != $targetPos->world->getFolderName()) return false;
-	  $zone_x = [$pos1->x, $pos2->x];
-	  $zone_y = [$pos1->y, $pos2->y];
-	  $zone_z = [$pos1->z, $pos2->z];
-	  $x = $targetPos->x;
-	  $y = $targetPos->y;
-	  $z = $targetPos->z
-	  if(min($zone_x) <= $x and max($zone_x) >= $x and min($zone_z) <= $z && max($zone_z) >= $z{
-	    if($mode === self::MODE_XZ) return true;
-	    if($mode === self::MODE_XYZ){
-	      if(min($zone_y) <= $y and max($zone_y) >= $y) return true;
-	    }
-	  }
-	  return false;
+		$pos1_world = $pos1->world->getFolderName();
+		if($pos1_world != $pos2->world->getFolderName()) return false;
+		if($pos1_world != $targetPos->world->getFolderName()) return false;
+		$zone_x = [$pos1->x, $pos2->x];
+		$zone_y = [$pos1->y, $pos2->y];
+		$zone_z = [$pos1->z, $pos2->z];
+		$x = $targetPos->x;
+		$y = $targetPos->y;
+		$z = $targetPos->z
+		if(min($zone_x) <= $x and max($zone_x) >= $x and min($zone_z) <= $z && max($zone_z) >= $z{
+			if($mode === self::MODE_XZ) return true;
+			if($mode === self::MODE_XYZ){
+				if(min($zone_y) <= $y and max($zone_y) >= $y) return true;
+			}
+		}
+		return false;
 	}
 	
 }
