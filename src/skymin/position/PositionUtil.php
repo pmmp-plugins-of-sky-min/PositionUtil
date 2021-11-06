@@ -63,7 +63,7 @@ final class PositionUtil{
 		$x = $targetPos->x;
 		$y = $targetPos->y;
 		$z = $targetPos->z
-		if(min($zone_x) <= $x and max($zone_x) >= $x and min($zone_z) <= $z && max($zone_z) >= $z{
+		if(min($zone_x) <= $x and max($zone_x) >= $x and min($zone_z) <= $z and max($zone_z) >= $z{
 			if($mode === self::MODE_XZ) return true;
 			if($mode === self::MODE_XYZ){
 				if(min($zone_y) <= $y and max($zone_y) >= $y) return true;
