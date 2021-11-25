@@ -9,6 +9,7 @@ use pocketmine\world\WorldManager;
 
 use pocketmine\world\Position;
 use pocketmine\entity\Location;
+use pocketmine\world\format\Chunk;
 
 use function explode;
 use function count;
@@ -63,13 +64,23 @@ final class PositionUtil{
 		$x = $targetPos->x;
 		$y = $targetPos->y;
 		$z = $targetPos->z
-		if(min($zone_x) <= $x and max($zone_x) >= $x and min($zone_z) <= $z and max($zone_z) >= $z{
+		if(min($zone_x) <= $x and max($zone_x) >= $x and min($zone_z) <= $z && max($zone_z) >= $z{
 			if($mode === self::MODE_XZ) return true;
 			if($mode === self::MODE_XYZ){
 				if(min($zone_y) <= $y and max($zone_y) >= $y) return true;
 			}
 		}
 		return false;
+	}
+	
+	public function getViewers(Position $pos) :array{
+		$viewrs = array();
+		foreach($pos->world->getPlayers() as $player){
+			if($player->hasReceivedChunk($pos->getFloorX() >> Chunk::COORD_BIT_SIZE, $pos->getFloorZ() >> Chunk::COORD_BIT_SIZE)){
+				$viewrs[] = $player;
+			}
+		}
+		return $viewrs;
 	}
 	
 }
