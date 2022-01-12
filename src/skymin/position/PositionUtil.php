@@ -31,7 +31,7 @@ final class PositionUtil{
 		$z = $pos->z;
 		$world = $pos->world->getFolderName();
 		if($type === self::TYPE_INT){
-			$result = (int) $x . $hash . (int) $y . $hash . (int) $z
+			$result = (int) $x . $hash . (int) $y . $hash . (int) $z;
 		}else if($type === self::TYPE_FLOAT){
 			$result = (float) $x . $hash . (float) $y . $hash . (float) $z;
 		}
