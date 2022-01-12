@@ -18,13 +18,13 @@ use function max;
 
 final class PositionUtil{
 	use SingletonTrait;
-	
+
 	public const TYPE_INT = 0;
 	public const TYPE_FLOAT = 1;
-	
+
 	public const MODE_XYZ = 0;
 	public const MODE_XZ = 1;
-	
+
 	public function PostoHash(Position|Location $pos, int $type = self::TYPE_FLOAT, string $sort = ':') :string{
 		$x = $pos->x;
 		$y = $pos->y;
@@ -41,7 +41,7 @@ final class PositionUtil{
 		}
 		return $result;
 	}
-	
+
 	public function HashtoPos(string $hash, string $sort = ':') :Position|Location{
 		$array = explode($sort, $hash);
 		$x = $array[0];
@@ -53,7 +53,7 @@ final class PositionUtil{
 		}
 		return new Position($x, $y, $z, $world);
 	}
-	
+
 	public function isZone(Postion $pos1, Postion $pos2, Position $targetPos, int $mode = self::MODE_XYZ) :bool{
 		$pos1_world = $pos1->world->getFolderName();
 		if($pos1_world != $pos2->world->getFolderName()) return false;
@@ -72,7 +72,7 @@ final class PositionUtil{
 		}
 		return false;
 	}
-	
+
 	public function getViewers(Position $pos) :array{
 		$viewrs = array();
 		foreach($pos->world->getPlayers() as $player){
@@ -82,5 +82,5 @@ final class PositionUtil{
 		}
 		return $viewrs;
 	}
-	
+
 }
