@@ -46,7 +46,7 @@ final class PositionUtil{
 		$array = explode($sort, $hash);
 		$x = $array[0];
 		$y = $array[1];
-		$z = $array[2]
+		$z = $array[2];
 		$world = WorldManager::getInstance()->getWorldByName($array[3]);
 		if(count($array) === 6){
 			return new Location($x, $y, $z, $world, $array[4], $array[5]);
@@ -63,7 +63,7 @@ final class PositionUtil{
 		$zone_z = [$pos1->z, $pos2->z];
 		$x = $targetPos->x;
 		$y = $targetPos->y;
-		$z = $targetPos->z
+		$z = $targetPos->z;
 		if(min($zone_x) <= $x and max($zone_x) >= $x and min($zone_z) <= $z && max($zone_z) >= $z{
 			if($mode === self::MODE_XZ) return true;
 			if($mode === self::MODE_XYZ){
